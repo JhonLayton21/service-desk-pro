@@ -17,6 +17,7 @@ import { SlaAlert } from './entities/sla-alert.entity';
 import { UsersModule } from './modules/users/users.module';
 import { CategoriesModule } from './modules/categories/categories.module';
 import { TicketsModule } from './modules/tickets/tickets.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -48,6 +49,7 @@ import { TicketsModule } from './modules/tickets/tickets.module';
     UsersModule,
     CategoriesModule,
     TicketsModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

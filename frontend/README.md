@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Service Desk Pro - Frontend
+
+This is the frontend application for Service Desk Pro, built with Next.js, TypeScript, and shadcn/ui.
+
+## Features
+
+- **Authentication System**: Login and signup with role-based access control
+- **Role-based Dashboards**: Different views for Requester, Agent, and Manager roles
+- **Modern UI**: Built with shadcn/ui components and Tailwind CSS
+- **TypeScript**: Full type safety throughout the application
+
+## User Roles
+
+The application supports three user roles with different dashboard views:
+
+### Requester
+- Create new tickets
+- View and manage their own tickets
+- Access knowledge base
+
+### Agent
+- View assigned tickets
+- Manage ticket status and priority
+- Access performance metrics
+- Create knowledge articles
+
+### Manager
+- Overview of all tickets and team performance
+- Access to reports and analytics
+- User management capabilities
+- System settings
+
+## Test Users
+
+Based on the seed data, you can test with these users:
+
+1. **Manager**: 
+   - Email: admin@servicedesk.com
+   - Password: admin123
+
+2. **Agent**: 
+   - Email: agent@servicedesk.com
+   - Password: agent123
+
+3. **Requester**: 
+   - Email: john@example.com
+   - Password: user123
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Backend Requirements
+
+Make sure the backend is running on port 3001 with the authentication endpoints:
+- POST /auth/login
+- POST /auth/register
+
+## Project Structure
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+src/
+├── app/                 # Next.js app directory
+├── components/          # React components
+│   ├── auth/           # Authentication components
+│   ├── dashboard/      # Dashboard components
+│   └── ui/             # shadcn/ui components
+├── contexts/           # React contexts
+├── lib/                # Utility functions
+└── types/              # TypeScript type definitions
+```
