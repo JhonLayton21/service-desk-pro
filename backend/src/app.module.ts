@@ -14,6 +14,9 @@ import { TicketFieldValue } from './entities/ticket-field-value.entity';
 import { TicketTransition } from './entities/ticket-transition.entity';
 import { TicketComment } from './entities/ticket-comment.entity';
 import { SlaAlert } from './entities/sla-alert.entity';
+import { UsersModule } from './modules/users/users.module';
+import { CategoriesModule } from './modules/categories/categories.module';
+import { TicketsModule } from './modules/tickets/tickets.module';
 
 @Module({
   imports: [
@@ -42,6 +45,9 @@ import { SlaAlert } from './entities/sla-alert.entity';
       ],
       synchronize: process.env.NODE_ENV === 'development', // Only for development
     }),
+    UsersModule,
+    CategoriesModule,
+    TicketsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
