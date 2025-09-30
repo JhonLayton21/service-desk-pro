@@ -1,14 +1,18 @@
 'use client';
 
+import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { User } from '@/types/auth';
+import { CategoriesModal } from './CategoriesModal';
 
 interface ManagerDashboardProps {
   user: User;
 }
 
 export function ManagerDashboard({ user }: ManagerDashboardProps) {
+  const [isCategoriesModalOpen, setIsCategoriesModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
@@ -124,7 +128,13 @@ export function ManagerDashboard({ user }: ManagerDashboardProps) {
             <CardContent className="space-y-3">
               <Button className="w-full justify-start">View All Tickets</Button>
               <Button variant="outline" className="w-full justify-start">Manage Users</Button>
-              <Button variant="outline" className="w-full justify-start">Generate Reports</Button>
+              <Button 
+                variant="outline" 
+                className="w-full justify-start bg-amber-400"
+                onClick={() => setIsCategoriesModalOpen(true)}
+              >
+                Configure categories
+              </Button>
               <Button variant="outline" className="w-full justify-start">System Settings</Button>
             </CardContent>
           </Card>
@@ -183,6 +193,12 @@ export function ManagerDashboard({ user }: ManagerDashboardProps) {
           </Card>
         </div>
       </div>
+
+      {/* Categories Modal */}
+      <CategoriesModal
+        isOpen={isCategoriesModalOpen}
+        onClose={() => setIsCategoriesModalOpen(false)}
+      />
     </div>
   );
 }
